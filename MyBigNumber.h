@@ -15,7 +15,7 @@ public:
     MyBigNumber(MyBigNumber && rightNum) noexcept ;    // move constructor
     MyBigNumber& operator=(const MyBigNumber & rightNum);
     MyBigNumber& operator=(MyBigNumber && rightNum) noexcept;    // move assignment
-
+    MyBigNumber multByOneDigit(int n);
 };
 
 

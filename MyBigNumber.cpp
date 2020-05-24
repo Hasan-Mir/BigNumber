@@ -1,4 +1,6 @@
 #include "MyBigNumber.h"
+#include <stdexcept>
+
 
 MyBigNumber::MyBigNumber( const std::string & str ) : BigNumber(str){}
 
@@ -45,4 +47,50 @@ MyBigNumber& MyBigNumber::operator=(MyBigNumber && rightNum) noexcept{
         rightNum.numArray = nullptr;
     }
     return *this;
+}
+
+MyBigNumber MyBigNumber::multByOneDigit(int n) {      // n must be 1 digit
+    if( n > 9 ){
+        throw std::invalid_argument("The argument must be one digit.");
+    }
+
+    MyBigNumber multiply;
+    if(n == 0 || *this == "0"){
+        multiply = "0";
+        return multiply;
+    }
+    if(n == 1){
+        return *this;
+    }
+    if(n == -1){
+        multiply = *this;
+        multiply.sign = !(this->sign);
+        return multiply;
+    }
+    else{
+        multiply.sign = sign;
+        if(n < 0 && sign){      // - * + = -
+            multiply.sign = false;
+        }
+        else if(n < 0 && !sign){    // - * - = +
+            multiply.sign = true;
+        }
+        multiply.numOfDigits = numOfDigits + 1;
+        multiply.numArray = new int8_t[multiply.numOfDigits];
+        size_t i = 0;
+        int8_t carry = 0;
+        int m;
+        for (; i < multiply.numOfDigits - 1; ++i) {
+            m = ( abs(n) * numArray[i] ) + carry;
+            multiply[i] = m % 10;
+            carry = m / 10;
+        }
+        if(carry == 0){
+            multiply.numOfDigits -= 1;
+        }
+        else{
+            multiply[i] = carry;
+        }
+        return multiply;
+    }
 }
