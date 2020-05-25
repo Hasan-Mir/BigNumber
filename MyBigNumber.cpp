@@ -145,3 +145,18 @@ MyBigNumber operator*(const MyBigNumber &left, const MyBigNumber &right) {
     //multiply.numOfDigits -= numOfZerosOnLeft;
     return multiply;
 }
+
+MyBigNumber MyBigNumber::power(int p) {
+    if(p < 0){
+        throw std::invalid_argument("The argument must be positive.");
+    }
+    MyBigNumber temp = 1;
+    if(p == 0){
+        temp = 1;
+        return temp;
+    }
+    for (int i = 0; i < p; ++i) {
+        temp = temp * *this;
+    }
+    return temp;
+}

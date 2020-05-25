@@ -19,6 +19,7 @@ public:
     MyBigNumber& operator=(MyBigNumber && rightNum) noexcept;    // move assignment
     MyBigNumber operator<<( unsigned shift ) const;
     MyBigNumber multByOneDigit(int n) const;
+    MyBigNumber power(int p);
 };
 
 
