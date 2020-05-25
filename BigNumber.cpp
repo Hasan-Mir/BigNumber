@@ -420,3 +420,27 @@ BigNumber BigNumber:: operator>>( unsigned shift ) const{
     }
     return temp;
 }
+
+BigNumber & BigNumber::operator++() {
+    *this = *this + 1;
+    return *this;
+}
+
+
+BigNumber BigNumber::operator++(int) {
+    BigNumber temp = *this;
+    *this = *this + 1;
+    return temp;
+}
+
+BigNumber & BigNumber::operator--() {
+    *this = *this - 1;
+    return *this;
+}
+
+
+BigNumber BigNumber::operator--(int) {
+    BigNumber temp = *this;
+    *this = *this - 1;
+    return temp;
+}

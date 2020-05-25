@@ -34,7 +34,7 @@ int main() {
 //        cout << e.what() << endl;
 //    }
 
-    MyBigNumber myBig1("-10564545654123123");
+    MyBigNumber myBig1("10564123123");
     MyBigNumber myBig2 = "562198778123";
 
     //cout << (myBig1 << 5) << "   " << (myBig1 << 5).getNumOfDigits() << endl;
@@ -49,6 +49,10 @@ int main() {
 //    cout << myBig1.power(2) << endl;
 //    cout << myBig2.power(5) << endl;
 
-    cout << myBig2 - myBig1 << endl;
+//    cout << myBig2 - myBig1 << endl;
+
+//    cout << myBig1-- << endl;
+    cout << myBig1-- << endl;
+
     return 0;
 }
