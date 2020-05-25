@@ -377,6 +377,29 @@ BigNumber operator+( const BigNumber & num1, const BigNumber & num2){
     return sum;
 }
 
+BigNumber operator-(const BigNumber &num1, const BigNumber &num2) {
+    BigNumber sub;
+    if(num1.sign == num2.sign){     // -5 - (-3) = -2    or    -3 - (-5) = 2    or -5 - (-5) = 0
+        sub = BigNumber::unsignedSubtract(num1,num2);
+        if(num1 < num2){        // -5 - (-3) = -2
+            sub.sign = false;
+        }
+        else if(num1 >= num2){  //-3 - (-5) = 2
+            sub.sign = true;
+        }
+    }
+    else{   // -5 - 3 = -8     or      3 - (-5) = 8
+        sub = BigNumber::unsignedAdd(num1 , num2);
+        if(num1 < num2){
+            sub.sign = false;
+        }
+        else if (num1 >= num2){
+            sub.sign = true;
+        }
+    }
+    return sub;
+}
+
 BigNumber BigNumber:: operator>>( unsigned shift ) const{
     if ( numOfDigits < shift ){
         throw invalid_argument("Shift must be less than number of digits.");
