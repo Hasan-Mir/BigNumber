@@ -161,7 +161,7 @@ MyBigNumber MyBigNumber::power(int p) {
     return temp;
 }
 
-MyBigNumber MyBigNumber::operator()(int startIndex, int numberOfDigits) {
+MyBigNumber MyBigNumber::operator()(int startIndex, int numberOfDigits) const{
     int range = numberOfDigits - startIndex;
     if( range >= 2 || startIndex >= this->numOfDigits || startIndex < 0 || numberOfDigits < 0){
         throw std::invalid_argument("Input's values is out of range.");
@@ -176,4 +176,32 @@ MyBigNumber MyBigNumber::operator()(int startIndex, int numberOfDigits) {
         subBig.numArray[j] = numArray[i];
     }
     return subBig;
+}
+
+MyBigNumber operator/(const MyBigNumber &left, const MyBigNumber &right) {
+    MyBigNumber a = left.absoluteValue();
+    MyBigNumber b = right.absoluteValue();
+    MyBigNumber q = "0";
+    while (a >= b){
+        ++q;
+        a = a - b;
+    }
+    if(q != "0"){
+        q.sign = (left.sign == right.sign);
+    }
+    return q;
+}
+
+MyBigNumber operator%(const MyBigNumber &left, const MyBigNumber &right) {
+    MyBigNumber a = left;
+    MyBigNumber b = right;
+    MyBigNumber r = "0";
+    if(a < b){
+        return a;
+    }
+    while (a >= b){
+        a = a - b;
+    }
+    r = a;
+    return r;
 }

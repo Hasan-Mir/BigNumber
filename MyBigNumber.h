@@ -5,6 +5,8 @@
 
 class MyBigNumber : public BigNumber{
     friend MyBigNumber operator*(const MyBigNumber& left , const MyBigNumber& right);
+    friend MyBigNumber operator/(const MyBigNumber& left , const MyBigNumber& right);
+    friend MyBigNumber operator%(const MyBigNumber &left, const MyBigNumber &right);
 private:
     MyBigNumber(){}
 
@@ -20,7 +22,7 @@ public:
     MyBigNumber operator<<( unsigned shift ) const;
     MyBigNumber multByOneDigit(int n) const;
     MyBigNumber power(int p);
-    MyBigNumber operator()(int startIndex, int numberOfDigits);
+    MyBigNumber operator()(int startIndex, int numberOfDigits) const;
 };
 
 
