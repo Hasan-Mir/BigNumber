@@ -6,12 +6,24 @@
 
 #IncludeRegexTransform: 
 
+E:/Hasan/Programming/C++/CLion/BigNumber/BigNumber.cpp
+BigNumber.h
+E:/Hasan/Programming/C++/CLion/BigNumber/BigNumber.h
+stdexcept
+-
+
 E:/Hasan/Programming/C++/CLion/BigNumber/BigNumber.h
 cstdint
 -
 string
 -
 regex
+-
+
+E:/Hasan/Programming/C++/CLion/BigNumber/MyBigNumber.cpp
+MyBigNumber.h
+E:/Hasan/Programming/C++/CLion/BigNumber/MyBigNumber.h
+stdexcept
 -
 
 E:/Hasan/Programming/C++/CLion/BigNumber/MyBigNumber.h

@@ -52,7 +52,10 @@ int main() {
 //    cout << myBig2 - myBig1 << endl;
 
 //    cout << myBig1-- << endl;
-    cout << myBig1-- << endl;
+//    cout << myBig1-- << endl;
+
+//    MyBigNumber myBig3 = myBig1(0,0);
+//    cout << myBig3 << "\t" << myBig3.getNumOfDigits() << endl;
 
     return 0;
 }

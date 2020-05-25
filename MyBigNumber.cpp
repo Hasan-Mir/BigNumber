@@ -160,3 +160,20 @@ MyBigNumber MyBigNumber::power(int p) {
     }
     return temp;
 }
+
+MyBigNumber MyBigNumber::operator()(int startIndex, int numberOfDigits) {
+    int range = numberOfDigits - startIndex;
+    if( range >= 2 || startIndex >= this->numOfDigits || startIndex < 0 || numberOfDigits < 0){
+        throw std::invalid_argument("Input's values is out of range.");
+    }
+    MyBigNumber subBig;
+    subBig.sign = sign;
+    subBig.numOfDigits = numberOfDigits;
+    subBig.numArray = new int8_t[subBig.numOfDigits];
+    int i = startIndex;
+    int j = numberOfDigits - 1;
+    for (; j >= 0 ; --i , --j) {
+        subBig.numArray[j] = numArray[i];
+    }
+    return subBig;
+}

@@ -20,6 +20,7 @@ public:
     MyBigNumber operator<<( unsigned shift ) const;
     MyBigNumber multByOneDigit(int n) const;
     MyBigNumber power(int p);
+    MyBigNumber operator()(int startIndex, int numberOfDigits);
 };
 
 
