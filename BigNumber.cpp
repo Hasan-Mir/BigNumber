@@ -377,7 +377,7 @@ BigNumber operator+( const BigNumber & num1, const BigNumber & num2){
     return sum;
 }
 
-BigNumber BigNumber:: operator>>( unsigned shift ){
+BigNumber BigNumber:: operator>>( unsigned shift ) const{
     if ( numOfDigits < shift ){
         throw invalid_argument("Shift must be less than number of digits.");
     }
