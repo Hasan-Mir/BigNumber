@@ -27,12 +27,8 @@ protected:
     static BigNumber unsignedAdd( const BigNumber& num1, const BigNumber& num2 );
     static BigNumber unsignedSubtract( const BigNumber& num1, const BigNumber& num2 );
 
-    //max(a, b)    a.max(b)
 
 public:
-    //must be private
-
-    // end of private list
 
     BigNumber( const std::string & str );
     BigNumber( const char * myCharArray ) : BigNumber((std::string) myCharArray) {}

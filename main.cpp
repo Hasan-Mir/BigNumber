@@ -8,56 +8,77 @@ using namespace std;
 
 int main() {
     cout << boolalpha;
+    BigNumber bigNum1(123458);
+    BigNumber bigNum2 = "-5450965855";
+    // Test >> and <<
+    cout << "Num1 = " << bigNum1 << endl;
+    cout << "Num2 = " << bigNum2 << endl;
+    cout << "---------------------------" << endl;
+    // Test + and -
+    cout << "Num1 + Num2 = " << bigNum1 + bigNum2 << endl;
+    cout << "Num1 - Num2 = " << bigNum1 - bigNum2 << endl;
+    cout << "---------------------------" << endl;
 
-//    for(unsigned char i{0}; i <= 127; ++i){
-//        std::cout << (int) i << '\t' << i << std::endl;
-//    }
-    //std::cout << x << std::endl;
-//    BigNumber x{-37};
-//    string str = "-0000";
-//    BigNumber y{str};
-//    cout << y << endl;
-//    cout << "Enter a number: ";
-//    cin >> x;
-//    x = -y;
-//    BigNumber z = -y;
-//    cout << (x != y) << endl;
-    //  BigNumber myBig1 = -17319;
-    // BigNumber myBig2 = "0000173";
-    //cout << BigNumber::unsignedLessOrEqual(myBig1, myBig2) << endl;
-    //BigNumber a = BigNumber::unsignedSubtract(myBig1, myBig2);
-    // cout << (myBig1 >> 3) << "\t" << (myBig1 >> 3).getSign() << endl;
-//    try{
-//        cout << BigNumber::unsignedSubtract(myBig1, myBig2) << endl;
-//    }
-//    catch( out_of_range e){
-//        cout << e.what() << endl;
-//    }
+    // Test []
+    cout << "Num1[2] = " << bigNum1[2] << endl;
+    cout << "---------------------------" << endl;
 
-    MyBigNumber myBig1("105643123");
-    MyBigNumber myBig2 = "562198778123";
+    // Test assignment =
+    BigNumber bigNum3 = 1;
+    bigNum3 = bigNum2;
+    cout << "Num3 = " << bigNum3 << endl;
+    cout << "---------------------------" << endl;
 
-    //cout << (myBig1 << 5) << "   " << (myBig1 << 5).getNumOfDigits() << endl;
+    // Test unary -
+    cout << "-Num3 = " << -bigNum3 << endl;
+    cout << "---------------------------" << endl;
 
-    /*myBig2 = myBig2<<2;
-    cout << myBig2 << "\t" << myBig2.getNumOfDigits() << endl;
-    myBig2 = myBig2<<2;
-    cout << myBig2 << "\t" << myBig2.getNumOfDigits() << endl;*/
+    // Test == != > >= < <=
+    cout << "Num3 == Num2   -->   " << (bigNum3 == bigNum2) << endl;
+    cout << "Num3 == Num1   -->   " << (bigNum3 == bigNum1) << endl;
+    cout << "Num3 != Num1   -->   " << (bigNum3 != bigNum1) << endl;
+    cout << "Num3 > Num2   -->   " << (bigNum3 > bigNum2) << endl;
+    cout << "Num3 >= Num2   -->   " << (bigNum3 >= bigNum2) << endl;
+    cout << "Num3 < Num1   -->   " << (bigNum3 < bigNum1) << endl;
+    cout << "Num3 <= Num1   -->   " << (bigNum3 <= bigNum1) << endl;
+    cout << "---------------------------" << endl;
 
-    //cout << myBig2.multByOneDigit(9) << "\t\t" << myBig2.multByOneDigit(9).getNumOfDigits() << endl << endl;
-//    cout << myBig2 * myBig1 << "\t\t" << (myBig2 * myBig1).getNumOfDigits() << endl;
-//    cout << myBig1.power(2) << endl;
-//    cout << myBig2.power(5) << endl;
+    // Test ++ and --
+    bigNum1++;
+    cout << "Num1++  =  " << bigNum1 << endl;
+    cout << "++Num1  =  " << ++bigNum1 << endl;
+    cout << "++++Num1  =  " << ++ ++bigNum1 << endl;
+    bigNum1--;
+    cout << "Num1--  =  " << bigNum1 << endl;
+    cout << "--Num1  =  " << --bigNum1 << endl;
+    cout << "----Num1  =  " << -- --bigNum1 << endl;
+    cout << "---------------------------" << endl;
 
-//    cout << myBig2 - myBig1 << endl;
+    // Test shift operator >> and <<
+    MyBigNumber myBigNum1 = "6465412338985210";
+    MyBigNumber myBigNum2 = "98950003121649841";
+    cout << "myBigNum1 = " << myBigNum1 << endl;
+    cout << "myBigNum2 = " << myBigNum2 << endl;
+    cout << "Num1 >> 3  =  " << (bigNum1 >> 3) << endl;
+    cout << "myBigNum1 >> 3  =  " << (myBigNum1 >> 3) << endl;
+    cout << "myBigNum1 << 3  =  " << (myBigNum1 << 3) << endl;
+    cout << "---------------------------" << endl;
 
-//    cout << myBig1-- << endl;
-//    cout << myBig1-- << endl;
 
-//    MyBigNumber myBig3 = myBig1(0,0);
-//    cout << myBig3 << "\t" << myBig3.getNumOfDigits() << endl;
+    // Test *  and  /  and  %
+    cout << "myBigNum1 * myBigNum2  =  " << myBigNum1 * myBigNum2 << endl;
+    cout << "myBigNum1 * 84465454  =  " << myBigNum1 * 84465454 << endl;
+    cout << "myBigNum1 / myBigNum2  =  " << myBigNum1 / myBigNum2 << endl;
+    cout << "myBigNum2 / myBigNum1  =  " << myBigNum2 / myBigNum1 << endl;
+    cout << "myBigNum1 % myBigNum2  =  " << myBigNum1 % myBigNum2 << endl;
+    cout << "myBigNum2 % myBigNum1  =  " << myBigNum2 % myBigNum1 << endl;
+    cout << "---------------------------" << endl;
 
-    cout << myBig1/myBig2 << endl;
-    cout << myBig1%myBig2 << endl;
+    // Test power function  and  ()
+    cout << "myBigNum1 ^ 5  =  " << myBigNum1.power(5) << endl;
+    cout << "myBigNum1 ^ 0  =  " << myBigNum1.power(0) << endl;
+    cout << "myBigNum1(6,5)  =  " << myBigNum1(6,5) << endl;
+    cout << "myBigNum2(3,1)  =  " << myBigNum2(3,1) << endl;
+    cout << "myBigNum2(3,0)  =  " << myBigNum2(3,0) << endl;
     return 0;
 }
